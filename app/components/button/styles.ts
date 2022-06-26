@@ -8,7 +8,7 @@ export const sButton = css`
   transition: 0.2s all;
 
   color: ${color.white};
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export const sButtonFullWidth = css`
@@ -53,7 +53,7 @@ export const sButtonPrimary = css`
 `;
 
 export const sButtonSecondary = css`
-  color: ${color.blue.secondary};
+  color: ${color.white};
   border: 1px solid ${color.blue.secondary};
   background-color: ${color.blue.secondary};
 
