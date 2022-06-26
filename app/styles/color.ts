@@ -13,6 +13,7 @@ const color = {
     primary: '#2671CC',
     secondary: '#54C6E6',
   },
+  red: '#D52700',
 };
 
 export default color;
