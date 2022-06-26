@@ -6,6 +6,8 @@ import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 
+import GlobalStyles from './styles/globalStyle';
+
 const key = 'custom';
 const cache = createCache({ key });
 const { extractCriticalToChunks, constructStyleTagsFromChunks } =
@@ -19,6 +21,7 @@ export default function handleRequest(
 ) {
   let markup = renderToString(
     <CacheProvider value={cache}>
+      <GlobalStyles />
       <RemixServer context={remixContext} url={request.url} />
     </CacheProvider>
   );
