@@ -1,10 +1,11 @@
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { css } from '@emotion/css';
 
 import type { Post } from '~/services/posts.server';
 import { getPosts } from '~/services/posts.server';
+
+import { Post as PostComponent } from '~/components';
 
 type LoaderData = {
   posts: Post[];
@@ -15,24 +16,14 @@ export const loader: LoaderFunction = async () => {
   return json(data);
 };
 
-const sWelcomeContainer = css`
-  font-family: 'system-ui, sans-serif';
-  line-height: '1.4';
-`;
-
 export default function Index() {
   const { posts } = useLoaderData<LoaderData>();
   return (
-    <div className={sWelcomeContainer}>
+    <div>
       <h1>Welcome to Remix</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.title}>
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-          </li>
-        ))}
-      </ul>
+      {posts.map((post) => (
+        <PostComponent key={post.id} header={post.title} body={post.body} />
+      ))}
     </div>
   );
 }
