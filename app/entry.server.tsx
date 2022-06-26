@@ -1,6 +1,15 @@
-import type { EntryContext } from "@remix-run/node";
-import { RemixServer } from "@remix-run/react";
-import { renderToString } from "react-dom/server";
+import type { EntryContext } from '@remix-run/node';
+import { RemixServer } from '@remix-run/react';
+import { renderToString } from 'react-dom/server';
+
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import createEmotionServer from '@emotion/server/create-instance';
+
+const key = 'custom';
+const cache = createCache({ key });
+const { extractCriticalToChunks, constructStyleTagsFromChunks } =
+  createEmotionServer(cache);
 
 export default function handleRequest(
   request: Request,
@@ -9,12 +18,18 @@ export default function handleRequest(
   remixContext: EntryContext
 ) {
   let markup = renderToString(
-    <RemixServer context={remixContext} url={request.url} />
+    <CacheProvider value={cache}>
+      <RemixServer context={remixContext} url={request.url} />
+    </CacheProvider>
   );
 
-  responseHeaders.set("Content-Type", "text/html");
+  const chunks = extractCriticalToChunks(markup);
+  const styles = constructStyleTagsFromChunks(chunks);
 
-  return new Response("<!DOCTYPE html>" + markup, {
+  markup = markup.replace('__STYLES__', styles);
+  responseHeaders.set('Content-Type', 'text/html');
+
+  return new Response('<!DOCTYPE html>' + markup, {
     status: responseStatusCode,
     headers: responseHeaders,
   });
