@@ -26,7 +26,7 @@ type ActionData = {
     formError?: string[];
     fieldErrors?: {
       title?: string[];
-      body?: string;
+      body?: string[];
     };
   };
   fields: {
@@ -74,11 +74,27 @@ export default function Index() {
   const formData = useActionData<ActionData>();
   return (
     <div className={sHomeContainer}>
+      <h2
+        className={css`
+          font-size: 28px;
+          font-weight: 600;
+        `}
+      >
+        Form
+      </h2>
       <PostForm
         action='/?index'
         error={formData?.error}
         fields={formData?.fields}
       />
+      <h2
+        className={css`
+          font-size: 28px;
+          font-weight: 600;
+        `}
+      >
+        Posts
+      </h2>
       {posts.map((post) => (
         <PostComponent key={post.id} header={post.title} body={post.body} />
       ))}

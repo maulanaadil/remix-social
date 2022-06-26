@@ -9,6 +9,7 @@ export const sPostContainer = css`
   border: 1px solid #d2d3d2;
   border-radius: 0.25rem;
   max-width: 28rem;
+  margin: 20px 0;
 `;
 
 export const sPostTitle = css`
