@@ -14,6 +14,7 @@ const color = {
     secondary: '#54C6E6',
   },
   red: '#D52700',
+  black: '#3e3e3e',
 };
 
 export default color;

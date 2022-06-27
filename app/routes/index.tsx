@@ -18,7 +18,7 @@ const sHomeContainer = css`
 `;
 
 type LoaderData = {
-  posts: Post[];
+  posts: Awaited<ReturnType<typeof getPosts>>;
 };
 
 type ActionData = {
@@ -59,6 +59,7 @@ export const action: ActionFunction = async ({ request }) => {
   await createPost({
     title: result.data.title,
     body: result.data.body,
+    authorId: 'bad-id',
   });
 
   return redirect('/');
@@ -97,7 +98,12 @@ export default function Index() {
         Posts
       </h2>
       {posts.map((post) => (
-        <PostComponent key={post.id} header={post.title} body={post.body} />
+        <PostComponent
+          key={post.id}
+          header={post.title}
+          body={post.body}
+          authorName={post?.author?.email}
+        />
       ))}
     </div>
   );
