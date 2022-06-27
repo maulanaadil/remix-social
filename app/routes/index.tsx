@@ -78,6 +78,7 @@ export default function Index() {
         className={css`
           font-size: 28px;
           font-weight: 600;
+          margin: 20px 0 0 0;
         `}
       >
         Form
