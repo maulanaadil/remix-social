@@ -6,14 +6,14 @@ export type { Post } from '@prisma/client';
 const prisma = new PrismaClient();
 
 const load = async () => {
-  console.log(`start seeding...`);
+  console.log(`start seeding 🚀🚀`);
   for (const data of postData) {
     const post = await prisma.post.create({
       data: data,
     });
     console.log(`Created post with id ${post.id}`);
   }
-  console.log(`Seeding finished`);
+  console.log(`Seeding finished ✨✨`);
 };
 
 load()
