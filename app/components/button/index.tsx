@@ -10,6 +10,7 @@ const Button = ({
   disabled,
   fullWidth,
   children,
+  as,
   ...otherprops
 }: Props) => {
   return (

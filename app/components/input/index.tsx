@@ -5,12 +5,12 @@ const Input = ({
   label,
   name,
   placeholder,
-  type,
+  element,
   children,
   ...otherProps
 }: Props) => {
-  const checkElementRender = (type: string) => {
-    if (type === 'inputField') {
+  const checkElementRender = (element: string) => {
+    if (element === 'inputField') {
       return (
         <input
           name={name}
@@ -20,7 +20,7 @@ const Input = ({
         />
       );
     }
-    if (type === 'textArea') {
+    if (element === 'textArea') {
       return (
         <textarea
           name={name}
@@ -37,7 +37,7 @@ const Input = ({
       <label htmlFor={label} className={sLabel}>
         {label}
       </label>
-      {checkElementRender(type)}
+      {checkElementRender(element)}
       {children}
     </div>
   );

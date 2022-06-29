@@ -4,17 +4,24 @@ import { json } from '@remix-run/node';
 import { useActionData, useLoaderData } from '@remix-run/react';
 import { css } from '@emotion/css';
 
-import type { Post } from '~/services/posts.server';
 import { getPosts, createPost } from '~/services/posts.server';
 
 import { Post as PostComponent } from '~/components';
 import { PostForm } from '~/components';
 import { CreatePost } from '~/services/validations';
+import color from '~/styles/color';
 
 const sHomeContainer = css`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  gap: 60px;
+`;
+
+const sNoPostText = css`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: ${color.black};
+  text-align: center;
 `;
 
 type LoaderData = {
@@ -75,36 +82,32 @@ export default function Index() {
   const formData = useActionData<ActionData>();
   return (
     <div className={sHomeContainer}>
-      <h2
-        className={css`
-          font-size: 28px;
-          font-weight: 600;
-          margin: 20px 0 0 0;
-        `}
-      >
-        Form
-      </h2>
       <PostForm
         action='/?index'
         error={formData?.error}
         fields={formData?.fields}
       />
-      <h2
+      <div
         className={css`
-          font-size: 28px;
-          font-weight: 600;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 80px;
         `}
       >
-        Posts
-      </h2>
-      {posts.map((post) => (
-        <PostComponent
-          key={post.id}
-          header={post.title}
-          body={post.body}
-          authorName={post?.author?.email}
-        />
-      ))}
+        {posts.length ? (
+          posts.map((post) => (
+            <PostComponent
+              key={post.id}
+              header={post.title}
+              body={post.body}
+              authorName={post?.author?.email}
+            />
+          ))
+        ) : (
+          <h3 className={sNoPostText}>There's no post 😔.</h3>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import type React from 'react';
 
 export type Props = ComponentPropsWithoutRef<'button'> & {
   type: ButtonType;
@@ -8,6 +9,7 @@ export type Props = ComponentPropsWithoutRef<'button'> & {
   fullWidth?: boolean;
   onClick?: () => void;
   children: ReactNode;
+  as?: React.ElementType<any>;
 };
 
 export type ButtonVariant = 'primary' | 'secondary';

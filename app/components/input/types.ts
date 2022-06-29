@@ -4,9 +4,9 @@ export type Props = {
   label: string;
   name: string;
   placeholder: string;
-  type: InputType;
+  element: InputElement;
   children?: ReactNode;
 } & ComponentPropsWithoutRef<'input'> &
   ComponentPropsWithoutRef<'textarea'>;
 
-type InputType = 'inputField' | 'textArea';
+type InputElement = 'inputField' | 'textArea';
