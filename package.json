@@ -5,6 +5,9 @@
     "build": "remix build",
     "dev": "remix dev"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "dependencies": {
     "@emotion/cache": "^11.9.3",
     "@emotion/css": "^11.9.0",

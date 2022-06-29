@@ -8,7 +8,7 @@ export const sPostContainer = css`
   border: 1px solid ${color.gray.gray1};
   border-radius: 0.25rem;
   max-width: 28rem;
-  margin: 20px 0;
+  margin: 10px 0;
 `;
 
 export const sPostTitle = css`

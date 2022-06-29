@@ -15,6 +15,7 @@ const color = {
   },
   red: '#D52700',
   black: '#3e3e3e',
+  navColor: 'rgba(255, 255, 255, 0.25)',
 };
 
 export default color;
