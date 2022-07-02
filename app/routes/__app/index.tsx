@@ -10,6 +10,7 @@ import { Post as PostComponent } from '~/components';
 import { PostForm } from '~/components';
 import { CreatePost } from '~/services/validations';
 import color from '~/styles/color';
+import { authenticator } from '~/services/auth.server';
 
 const sHomeContainer = css`
   display: flex;
@@ -43,6 +44,9 @@ type ActionData = {
 };
 
 export const action: ActionFunction = async ({ request }) => {
+  const user = await authenticator.isAuthenticated(request, {
+    failureRedirect: 'signin',
+  });
   const form = await request.formData();
   const rawTitle = form.get('title');
   const rawBody = form.get('body');
@@ -66,13 +70,14 @@ export const action: ActionFunction = async ({ request }) => {
   await createPost({
     title: result.data.title,
     body: result.data.body,
-    authorId: 'bad-id',
+    authorId: user.id,
   });
 
   return redirect('/');
 };
 
-export const loader: LoaderFunction = async () => {
+export const loader: LoaderFunction = async ({ request }) => {
+  await authenticator.isAuthenticated(request, { failureRedirect: 'signin' });
   const data: LoaderData = { posts: await getPosts() };
   return json(data);
 };

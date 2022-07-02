@@ -51,3 +51,8 @@ export const sListNavLinks = css`
     color: ${color.white};
   }
 `;
+
+export const sUserEmail = css`
+  color: ${color.black};
+  font-size: 1rem;
+`;
