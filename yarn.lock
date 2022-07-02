@@ -1378,7 +1378,7 @@
     "source-map-support" "^0.5.21"
     "stream-slice" "^0.1.2"
 
-"@remix-run/react@^1.6.1":
+"@remix-run/react@^1.0.0", "@remix-run/react@^1.6.1":
   "integrity" "sha512-7jg1IyE/cEz1pYRC2fk8WMmorxNam0XWUuwgDH9f7bV3DH0uyqZSemayb4QLTuJaxW/YT12CW4qyzIGvSu0YYA=="
   "resolved" "https://registry.npmjs.org/@remix-run/react/-/react-1.6.1.tgz"
   "version" "1.6.1"
@@ -1396,7 +1396,7 @@
     "express" "^4.17.1"
     "morgan" "^1.10.0"
 
-"@remix-run/server-runtime@1.6.1":
+"@remix-run/server-runtime@^1.0.0", "@remix-run/server-runtime@1.6.1":
   "integrity" "sha512-z9ha524SQ4m+eHigHN9890F+QqirmwZlRZ6zsnhxcjg2t29MVMKPSwzETZ3IZtIpSWtHPoU/7IYJklUXIxliRA=="
   "resolved" "https://registry.npmjs.org/@remix-run/server-runtime/-/server-runtime-1.6.1.tgz"
   "version" "1.6.1"
@@ -6054,6 +6054,20 @@
     "mdast-util-to-hast" "^11.0.0"
     "unified" "^10.0.0"
 
+"remix-auth-form@^1.1.2":
+  "integrity" "sha512-sQXvmQH6aBoCAy12PcG0r6Sfg+JlMbVEeR3SlWK9R8SXp8TAGks20TO5ofL7dgw38o228eSvwSa3y0z0PDCEDw=="
+  "resolved" "https://registry.npmjs.org/remix-auth-form/-/remix-auth-form-1.1.2.tgz"
+  "version" "1.1.2"
+  dependencies:
+    "remix-auth" "^3.1.0"
+
+"remix-auth@^3.1.0", "remix-auth@^3.2.2":
+  "integrity" "sha512-VtzkfxeXbnXilupRTZkP40aik4vFSdwwRT96mbq0UBDMqHVRfQ7h9Y51HFrTufHJZEfAdkCopedMVvm0vQYKag=="
+  "resolved" "https://registry.npmjs.org/remix-auth/-/remix-auth-3.2.2.tgz"
+  "version" "3.2.2"
+  dependencies:
+    "uuid" "^8.3.2"
+
 "repeat-element@^1.1.2":
   "integrity" "sha512-LFiNfRcSu7KK3evMyYOuCzv3L10TW7yC1G2/+StMjK8Y6Vqd2MG7r/Qjw4ghtuCOjFvlnms/iMmLqpvW/ES/WQ=="
   "resolved" "https://registry.npmjs.org/repeat-element/-/repeat-element-1.1.4.tgz"
@@ -7107,6 +7121,11 @@
   "integrity" "sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA=="
   "resolved" "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   "version" "1.0.1"
+
+"uuid@^8.3.2":
+  "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
+  "version" "8.3.2"
 
 "uvu@^0.5.0":
   "integrity" "sha512-x1CyUjcP9VKaNPhjeB3FIc/jqgLsz2Q9LFhRzUTu/jnaaHILEGNuE0XckQonl8ISLcwyk9I2EZvWlYsQnwxqvQ=="
