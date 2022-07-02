@@ -3,13 +3,16 @@ import type { ComponentPropsWithoutRef } from 'react';
 export type Props = ComponentPropsWithoutRef<'form'> & {
   error?: {
     formError?: string[];
-    fieldsError?: {
+    fieldErrors?: {
       email?: string[];
       password?: string[];
+      name?: string[];
     };
   };
   fields?: {
-    email?: string[];
-    password?: string[];
+    email?: string;
+    password?: string;
+    name?: string;
   };
+  signUp?: boolean;
 };
