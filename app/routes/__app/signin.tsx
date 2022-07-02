@@ -31,14 +31,12 @@ export const loader: LoaderFunction = async ({ request }) => {
   await authenticator.isAuthenticated(request, {
     successRedirect: '/',
   });
-  const session = await getSession(request.headers.get('cookie'));
-  const error = session.get(authenticator.sessionErrorKey) as Error[] | Error;
+  let session = await getSession(request.headers.get('cookie'));
+  let error = session.get(authenticator.sessionErrorKey) as Error[] | Error;
   if (error) {
     return json({
       error: {
-        formError: [
-          'Unable to login with those credentials, please try again!',
-        ],
+        formError: ['Username/Password combination is incorrect'],
       },
     });
   } else {
