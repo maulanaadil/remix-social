@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\MSI GF63 9RCX\.yarn\releases\yarn-1.22.11.cjs
+  C:\Program Files\nodejs\node.exe C:\Users\MSI GF63 9RCX\.yarn\releases\yarn-1.22.11.cjs add secure-password
 
 PATH: 
   C:\Users\MSI GF63 9RCX\Documents\PowerShell\Modules\oh-my-posh;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.2.5.0_x64__8wekyb3d8bbwe;C:\Python310\Scripts\;C:\Python310\;C:\Users\MSI GF63 9RCX\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\MSI GF63 9RCX\.fly\bin;C:\Users\MSI GF63 9RCX\scoop\apps\gnupg\current\bin;C:\Users\MSI GF63 9RCX\Documents\PowerShell\Modules\oh-my-posh;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.2.1.0_x64__8wekyb3d8bbwe;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\MSI GF63 9RCX\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Git\bin;node_global\bin;C:\Users\MSI GF63 9RCX\AppData\Roaming\npm;C:\Users\MSI GF63 9RCX\fzf;C:\ProgramData\chocolatey\bin;C:\composer;C:\Users\MSI GF63 9RCX\Neovim\bin;C:\Windows\System32;C:\Users\MSI GF63 9RCX\scoop\shims;C:\Users\MSI GF63 9RCX\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Git\bin;node_global\bin;C:\Users\MSI GF63 9RCX\fzf;C:\ProgramData\chocolatey\bin;C:\composer;C:\Users\MSI GF63 9RCX\Neovim\bin;C:\Windows\System32;C:\Users\MSI GF63 9RCX\scoop\shims;C:\Users\MSI GF63 9RCX\scoop\apps\win-gpg-agent\1.6.0;C:\Program Files (x86)\VideoLAN\VLC
@@ -24,6 +24,9 @@ npm manifest:
       "build": "remix build",
       "dev": "remix dev"
     },
+    "prisma": {
+      "seed": "ts-node prisma/seed.ts"
+    },
     "dependencies": {
       "@emotion/cache": "^11.9.3",
       "@emotion/css": "^11.9.0",
@@ -35,7 +38,8 @@ npm manifest:
       "@remix-run/vercel": "^1.6.1",
       "@vercel/node": "^1.15.2",
       "react": "^17.0.2",
-      "react-dom": "^17.0.2"
+      "react-dom": "^17.0.2",
+      "zod": "^3.17.3"
     },
     "devDependencies": {
       "@prisma/client": "^3.15.2",
@@ -7349,6 +7353,11 @@ Lockfile:
     "integrity" "sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q=="
     "resolved" "https://registry.npmjs.org/yn/-/yn-3.1.1.tgz"
     "version" "3.1.1"
+  
+  "zod@^3.17.3":
+    "integrity" "sha512-4oKP5zvG6GGbMlqBkI5FESOAweldEhSOZ6LI6cG+JzUT7ofj1ZOC0PJudpQOpT1iqOFpYYtX5Pw0+o403y4bcg=="
+    "resolved" "https://registry.npmjs.org/zod/-/zod-3.17.3.tgz"
+    "version" "3.17.3"
   
   "zwitch@^2.0.0":
     "integrity" "sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA=="
