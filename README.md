@@ -1,34 +1,51 @@
-# Welcome to Remix!
+# Welcome to Remix Social!
 
 - [Remix Docs](https://remix.run/docs)
 
-## Deployment
+## Requirements
 
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
-
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
-
-```sh
-npm i -g vercel
-vercel
-```
-
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
+- Prisma
+- PlanetScale Account
+- Yarn
+- Mysql
 
 ## Development
 
 To run your Remix app locally, make sure your project's local dependencies are installed:
 
 ```sh
-npm install
+yarn install
 ```
 
 Afterwards, start the Remix development server like so:
 
 ```sh
-npm run dev
+yarn run dev
+```
+
+After install packages add `DATABASE_URL` of your `planet scale` on _`.env`_:
+
+```env
+DATABASE_URL=<your_URL>
+```
+
+Run planet scale
+
+```
+planetscale connect remix-social main --port 3309
+```
+
+Run prisma to generate and migrate the database
+
+```
+prisma generate
+prisma migrate:db
+```
+
+Afterwards, run prisma studio to check the data
+
+```
+prisma studio
 ```
 
 Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
-
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
